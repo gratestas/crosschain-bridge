@@ -3,7 +3,7 @@ pragma solidity 0.8.17;
 
 abstract contract Proxy {
     function _delegate() internal {
-        address implementation = _getImplementation();
+        address implementation = getImplementation();
         require(implementation != address(0));
         assembly {
             let ptr := mload(0x40)
@@ -38,5 +38,5 @@ abstract contract Proxy {
         _delegate();
     }
 
-    function _getImplementation() public view virtual returns (address);
+    function getImplementation() public view virtual returns (address);
 }
