@@ -9,7 +9,7 @@ contract UpgradabilityStorage {
         return _version;
     }
 
-    function implementation() external view returns (address) {
+    function _getImplementation() external view returns (address) {
         return _implementation;
     }
 }
