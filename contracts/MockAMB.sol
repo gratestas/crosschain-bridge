@@ -1,7 +1,9 @@
 //SPDX-License-Identifier: MIT
 pragma solidity 0.8.17;
 
-contract MockAMB {
+import {IAMB} from "./interfaces/IAMB.sol";
+
+contract MockAMB is IAMB {
     uint256 private _currentMessageId;
     address private _currentMessageSender;
 
