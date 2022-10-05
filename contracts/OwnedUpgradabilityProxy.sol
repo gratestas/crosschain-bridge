@@ -41,7 +41,7 @@ contract OwnedUpgradabilityProxy is
         _upgradeTo(newVersion, newImplementation);
 
         //calls own receive/fallback func that will delegate call to
-        // the implementation
+        // the implementation (initialize() method)
         (bool sucess, ) = address(this).call{value: msg.value}(data);
         require(sucess, "Call failed");
     }
