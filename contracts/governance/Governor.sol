@@ -15,7 +15,7 @@ contract Governor {
 
     enum ProposalState {
         Pending,
-        Acive,
+        Active,
         Accepted,
         Rejected,
         Executed
@@ -99,7 +99,7 @@ contract Governor {
             votingStarts: block.timestamp + votingDelay,
             votingEnds: block.timestamp + votingDuration,
             executed: false,
-            state: ProposalState.Acive
+            state: ProposalState.Active
         });
 
         emit ProposalStateChanged(proposalId, "submitted");
@@ -120,7 +120,7 @@ contract Governor {
      *  - 2: if vote is abstained
      */
     function vote(bytes32 _proposalId, uint8 _voteType) external {
-        require(proposals[_proposalId].state == ProposalState.Acive);
+        require(proposals[_proposalId].state == ProposalState.Active);
         require(
             proposals[_proposalId].votingStarts < block.timestamp &&
                 proposals[_proposalId].votingEnds > block.timestamp,
