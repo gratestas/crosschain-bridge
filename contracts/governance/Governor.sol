@@ -67,7 +67,7 @@ contract Governor {
         governor = msg.sender;
     }
 
-    /** @notice Executes selected transactions of the list. UNTRUSTED.
+    /** @notice Create a proposal.
      *  @dev Emits {ProposalStateChanged} event.
      *  @dev Requirements:
      *  - Proposal must not have sumbitted.
@@ -105,7 +105,7 @@ contract Governor {
         emit ProposalStateChanged(proposalId, "submitted");
     }
 
-    /** @notice Executes selected transactions of the list. UNTRUSTED.
+    /** @notice Vote for a proposal.
      *  @dev Emits {Voted} event
      *  @dev Requirements:
      *  - Propsal must be submitted.
@@ -145,7 +145,7 @@ contract Governor {
         emit Voted(_proposalId, msg.sender, VoteType(_voteType));
     }
 
-    /** @notice Executes accepted proposal.
+    /** @notice Execute accepted proposal.
      *  @dev Emits {ProposalStateChanged} event.
      *  @dev Requirements:
      *  - Proposal must be accepted.
