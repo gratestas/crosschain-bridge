@@ -37,7 +37,6 @@ contract Governor {
     struct Proposal {
         uint256 votingStarts;
         uint256 votingEnds;
-        bool executed;
         ProposalState state;
     }
 
@@ -98,7 +97,6 @@ contract Governor {
         proposals[proposalId] = Proposal({
             votingStarts: block.timestamp + votingDelay,
             votingEnds: block.timestamp + votingDuration,
-            executed: false,
             state: ProposalState.Active
         });
 
